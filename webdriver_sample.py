@@ -14,8 +14,8 @@ options.add_argument('headless')  # avoid opening browser
 
 def scrape_nvd():
     for page in range(0,61,20):  # iterate over pages
-        url = 'https://nvd.nist.gov/vuln/search/results?results_type=overview&form_type=Basic&search_type=last3months' \
-              '&startIndex={}'.format(page)
+        url = f'https://nvd.nist.gov/vuln/search/results?results_type=overview&form_type=Basic&search_type=last3months' \
+              '&startIndex={page}'
         driver.get(url)
         
         rows = len(driver.find_elements_by_xpath('//*[@id="row"]/table/tbody/tr'))  # count rows
